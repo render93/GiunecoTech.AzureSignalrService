@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "@aspnet/signalr@1.1.4",
+      "destination": "wwwroot/lib/@aspnet/signalr/",
+      "files": [
+        "dist/browser/signalr.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "noty@3.1.4",
+      "destination": "wwwroot/lib/noty/",
+      "files": [
+        "noty.min.js",
+        "noty.css",
+        "noty.min.css"
+      ]
+    }
+  ]
+}

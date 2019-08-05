@@ -1,0 +1,80 @@
+﻿@using CoffeeOrder.Models
+@model Order
+
+<link href="~/lib/noty/noty.css" rel="stylesheet" />
+<style>
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box;}
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        width: 500px;
+        margin: auto;
+        height: 240px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    p {
+        text-align: center
+    }
+</style>
+
+<h2>Scegli cosa ordinare</h2>
+
+<div class="container">
+    <form >
+        <label>Prodotto</label>
+        @Html.DropDownList("Product", Html.GetEnumSelectList<Product>())
+
+        <label>Dimensione</label>
+        @Html.DropDownList("Size", Html.GetEnumSelectList<Size>())
+
+        <button id="send" type="button">Ordina</button>
+    </form>
+</div>
+
+
+<div>
+    <p><strong>Stato corrente</strong></p>
+    <p id="status">In attesa</p>
+</div>
+
+<script src="~/lib/noty/noty.min.js"></script>
+<script src="~/js/signalr.js"></script>
+<script src="~/js/site.js"></script>
